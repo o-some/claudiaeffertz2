@@ -32,3 +32,18 @@
 .feature-grid h2,.split h2{font-size:clamp(2.25rem,4vw,4rem)}
 @media(max-width:900px){.feature-grid,.feature-grid.reverse,.split{grid-template-columns:1fr;gap:2rem}.feature-grid.reverse .media{order:0}.cards,.image-cards{grid-template-columns:1fr}}
 @media(max-width:700px){h1,.page-hero h1{font-size:clamp(2.5rem,11vw,3.4rem)}}
+
+/* Barely visible paper grain gives the large colour fields a tactile surface. */
+body{background-image:url('grain.png')}
+.section--paper{background-image:radial-gradient(ellipse at 12% 8%,rgba(179,138,98,.055),transparent 58%),url('grain.png')}
+.section--wine,.page-hero{background-image:radial-gradient(ellipse at 82% 12%,rgba(235,199,151,.075),transparent 55%),url('grain.png')}
+.section--deep,.footer{background-image:radial-gradient(ellipse at 15% 10%,rgba(179,138,98,.055),transparent 60%),url('grain.png')}
+.section:not(.section--paper):not(.section--wine):not(.section--deep){background-image:url('grain.png')}
+.pathways{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin-top:3rem}
+.pathway{background:var(--paper);padding:clamp(1.5rem,2.6vw,2.5rem);min-width:0;scroll-margin-top:7rem}
+.pathway .eyebrow{display:block;margin-bottom:1.1rem}
+.pathway h3{font-size:clamp(1.55rem,2.3vw,2.4rem)}
+.pathway p{color:var(--muted)}
+.pathway .text-link{display:inline-block;margin-top:.6rem}
+.pathway:target{outline:2px solid var(--gold);outline-offset:-2px}
+@media(max-width:900px){.pathways{grid-template-columns:1fr}.pathway{padding:1.7rem}}
