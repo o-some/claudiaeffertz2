@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 440" role="img" aria-labelledby="title desc">
+  <title id="title">Drei Perspektiven finden zusammen</title>
+  <desc id="desc">Claudias Begleitung, Fachwissen und Umsetzung überschneiden sich im passenden Weg für ein Vorhaben.</desc>
+  <g stroke="#393431" stroke-width="1.25">
+    <circle cx="310" cy="156" r="127" fill="#b8b4af" fill-opacity=".28"/>
+    <circle cx="224" cy="274" r="127" fill="#d9d4cd" fill-opacity=".47"/>
+    <circle cx="396" cy="274" r="127" fill="#77736f" fill-opacity=".2"/>
+  </g>
+  <g fill="#302b29" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="700" letter-spacing="2.3" text-anchor="middle">
+    <text x="310" y="91">CLAUDIA</text>
+    <text x="170" y="305">FACHWISSEN</text>
+    <text x="450" y="305">UMSETZUNG</text>
+  </g>
+  <g fill="#302b29" font-family="Georgia,'Times New Roman',serif" font-size="24" text-anchor="middle">
+    <text x="310" y="245">Der passende</text>
+    <text x="310" y="273">Weg</text>
+  </g>
+  <path d="M310 19v-15M17 275H2M603 275h15" stroke="#393431" stroke-width="1"/>
+</svg>

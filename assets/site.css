@@ -47,3 +47,13 @@ body{background-image:url('grain.png')}
 .pathway .text-link{display:inline-block;margin-top:.6rem}
 .pathway:target{outline:2px solid var(--gold);outline-offset:-2px}
 @media(max-width:900px){.pathways{grid-template-columns:1fr}.pathway{padding:1.7rem}}
+
+/* Monochrome line ornaments echo the supplied Burgundy Code page system. */
+.section--ornate{position:relative;isolation:isolate}
+.section--ornate::after{content:"";position:absolute;inset:0 0 0 auto;width:clamp(70px,6.5vw,100px);background:url('ornament-edge.svg') center/100% 100% no-repeat;pointer-events:none;z-index:0}
+.section--ornate>.container{position:relative;z-index:1}
+.pathway-icon{width:54px;height:54px;margin-bottom:1.1rem}
+.network-venn{max-width:540px;margin:2.8rem auto 0}
+.network-venn img{width:100%;height:auto}
+.network-venn figcaption{font-size:.7rem;letter-spacing:.13em;text-transform:uppercase;text-align:center;color:var(--muted);margin-top:.35rem}
+@media(max-width:1100px){.section--ornate::after{display:none}}
