@@ -36,7 +36,7 @@ if (!reducedMotion.matches && 'IntersectionObserver' in window) {
   }), {threshold: .08, rootMargin: '0px 0px -5% 0px'});
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-  const scenes = [...document.querySelectorAll('.hero > img, .page-hero-image:not(.claudia-media) > img, .feature-grid .media:not(.claudia-media) > img')].map(img => img.parentElement);
+  const scenes = [...document.querySelectorAll('.hero > img, .page-hero-image:not(.claudia-media):not(.face-safe) > img, .feature-grid .media:not(.claudia-media) > img')].map(img => img.parentElement);
   scenes.forEach(scene => scene.classList.add('scroll-media'));
   const line = document.createElement('span');
   line.className = 'reading-line';
