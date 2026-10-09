@@ -23,7 +23,7 @@ document.querySelectorAll('#main-nav a').forEach(a => a.addEventListener('click'
 }));
 const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
 if (!reducedMotion.matches && 'IntersectionObserver' in window) {
-  document.querySelectorAll('main .section .line-heading, main .section .feature-grid > *, main .section .cards > *, main .section .image-cards > *, main .section .steps > *, main .section .people > *, main .section .cta-band > *').forEach(el => {
+  document.querySelectorAll('main .section .line-heading, main .section .feature-grid > *, main .section .split > .media, main .section .cards > *, main .section .image-cards > *, main .section .steps > *, main .section .people > *, main .section .cta-band > *').forEach(el => {
     el.classList.add('reveal');
     if (el.matches('.card, .image-card, .person, .step')) {
       const index = Array.prototype.indexOf.call(el.parentElement.children, el);
@@ -37,7 +37,8 @@ if (!reducedMotion.matches && 'IntersectionObserver' in window) {
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
   document.querySelectorAll('main .section--ornate').forEach(el => observer.observe(el));
 
-  const scenes = [...document.querySelectorAll('.hero > img, .page-hero-image[data-parallax] > img, .feature-grid > .media:not(.claudia-media):not(.keynote-frame):not(.face-safe) > img, .split > .media > img')].map(img => ({element: img.parentElement, shift: 0}));
+  const scenes = [...document.querySelectorAll('.hero > img, .page-hero-image[data-parallax] > img')].map(img => ({element: img.parentElement, shift: 0}));
+  scenes.forEach(({element}) => element.classList.add('scroll-media'));
   const line = document.createElement('span');
   line.className = 'reading-line';
   line.setAttribute('aria-hidden', 'true');
@@ -48,12 +49,9 @@ if (!reducedMotion.matches && 'IntersectionObserver' in window) {
     let moving = false;
     scenes.forEach(scene => {
       const mobile = innerWidth <= 700;
-      const eligible = mobile || !scene.element.classList.contains('media');
-      scene.element.classList.toggle('scroll-media', eligible);
-      if (!eligible) return;
       const box = scene.element.getBoundingClientRect();
       if (box.bottom < 0 || box.top > height) return;
-      const range = scene.element.classList.contains('hero') ? (mobile ? 56 : 80) : scene.element.classList.contains('page-hero-image') ? (mobile ? 42 : 70) : (mobile ? 40 : 60);
+      const range = scene.element.classList.contains('hero') ? (mobile ? 56 : 80) : (mobile ? 42 : 70);
       const scale = parseFloat(getComputedStyle(scene.element).getPropertyValue('--parallax-scale'));
       const limit = Math.min(range, Math.max(0, box.height * (scale - 1) / 2 - 3));
       const target = Math.max(-limit, Math.min(limit, (height / 2 - box.top - box.height / 2) * .16));
