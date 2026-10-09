@@ -3,7 +3,7 @@
 @media(max-width:1200px){.menu-toggle{display:block}.nav{display:none;position:absolute;top:78px;left:0;right:0;background:var(--cream);padding:1.5rem;box-shadow:0 15px 30px #2c0d1529;flex-direction:column;align-items:stretch;gap:0}.nav.open{display:flex}.nav a{padding:.85rem 0;border-bottom:1px solid var(--line)}.nav .nav-cta{padding:1rem;text-align:center;margin-top:1rem}.steps{grid-template-columns:repeat(3,1fr);gap:2rem 0}.step:nth-child(4){border-left:0}.people{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:700px){.container,.header-inner{width:min(calc(100% - 2rem),var(--max))}.header-inner{height:68px}.nav{top:68px}.hero{min-height:680px}.hero:after{background:linear-gradient(90deg,rgba(35,9,16,.91),rgba(35,9,16,.44))}.hero-content{padding:5rem 0}.hero-side{display:none}.intro-grid,.split,.statement,.feature-grid,.feature-grid.reverse,.cta-band,.contact-grid{grid-template-columns:1fr;gap:2rem}.feature-grid.reverse .media{order:0}.cards,.image-cards{grid-template-columns:1fr}.card{min-height:220px}.line-heading{display:block}.steps{grid-template-columns:repeat(2,1fr)}.step:nth-child(odd){border-left:0}.step:nth-child(4){border-left:1px solid var(--line)}.mini-gallery{grid-template-columns:repeat(2,1fr)}.people{grid-template-columns:repeat(2,1fr)}.service-list{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr 1fr}.footer-grid>div:first-child{grid-column:1/-1}.footer-bottom{display:block}}
 @media(max-width:420px){h1{font-size:3.15rem}.brand-text{font-size:.95rem}.brand-mark{width:26px;height:33px}.header-inner{gap:.5rem}.people{grid-template-columns:1fr}.hero-actions .button{width:100%}.footer-grid{grid-template-columns:1fr}}
-.hero .container{min-width:0;flex:0 1 auto}.hero-content{max-width:min(800px,100%)}.split>*,.feature-grid>*,.contact-grid>*{min-width:0}h1,h2,h3{overflow-wrap:break-word}
+.hero .container{min-width:0;flex:0 1 auto}.hero-content{max-width:min(800px,100%)}.split>*,.feature-grid>*,.contact-grid>*{min-width:0}h1,h2,h3{overflow-wrap:normal;hyphens:manual}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important}.reveal{opacity:1;transform:none}}
 
 /* The original portrait stays recognizable; warmth and burgundy live in the frame. */
@@ -25,3 +25,8 @@
 .button:active{transform:translateY(0) scale(.98)}
 @media(max-width:700px){.claudia-media::before{inset:9px}.scroll-media>img{transform:translate3d(0,var(--scroll-shift,0px),0) scale(1.06)}.media.scroll-media:hover img{transform:translate3d(0,var(--scroll-shift,0px),0) scale(1.06)}}
 @media(prefers-reduced-motion:reduce){.scroll-media>img,.media.scroll-media:hover img{transform:none!important;will-change:auto}.motion-ready .reveal{opacity:1;transform:none;transition:none}.reading-line{display:none}}
+
+/* Keep German compounds readable before narrowing a column or a word. */
+.feature-grid h2,.split h2{font-size:clamp(2.25rem,4vw,4rem)}
+@media(max-width:900px){.feature-grid,.feature-grid.reverse,.split{grid-template-columns:1fr;gap:2rem}.feature-grid.reverse .media{order:0}.cards,.image-cards{grid-template-columns:1fr}}
+@media(max-width:700px){h1,.page-hero h1{font-size:clamp(2.5rem,11vw,3.4rem)}}
