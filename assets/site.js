@@ -27,7 +27,7 @@ if (!reducedMotion.matches && 'IntersectionObserver' in window) {
     el.classList.add('reveal');
     if (el.matches('.card, .image-card, .person, .step')) {
       const index = Array.prototype.indexOf.call(el.parentElement.children, el);
-      el.style.setProperty('--reveal-delay', `${Math.min(index % 4, 3) * 80}ms`);
+      el.style.setProperty('--reveal-delay', `${Math.min(index % 4, 3) * 110}ms`);
     }
   });
   document.documentElement.classList.add('motion-ready');
@@ -36,8 +36,8 @@ if (!reducedMotion.matches && 'IntersectionObserver' in window) {
   }), {threshold: .08, rootMargin: '0px 0px -5% 0px'});
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-  const scenes = [...document.querySelectorAll('.hero > img, .page-hero-image:not(.claudia-media):not(.face-safe) > img, .feature-grid .media:not(.claudia-media) > img')].map(img => img.parentElement);
-  scenes.forEach(scene => scene.classList.add('scroll-media'));
+  const scenes = [...document.querySelectorAll('.hero > img, [data-parallax] > img')].map(img => ({element: img.parentElement, shift: 0}));
+  scenes.forEach(({element}) => element.classList.add('scroll-media'));
   const line = document.createElement('span');
   line.className = 'reading-line';
   line.setAttribute('aria-hidden', 'true');
@@ -45,16 +45,21 @@ if (!reducedMotion.matches && 'IntersectionObserver' in window) {
   let scheduled = false;
   const paintScroll = () => {
     const height = innerHeight;
-    const limit = innerWidth <= 700 ? 10 : 28;
+    let moving = false;
     scenes.forEach(scene => {
-      const box = scene.getBoundingClientRect();
+      const box = scene.element.getBoundingClientRect();
       if (box.bottom < 0 || box.top > height) return;
-      const shift = Math.max(-limit, Math.min(limit, (height / 2 - box.top - box.height / 2) * .07));
-      scene.style.setProperty('--scroll-shift', `${shift.toFixed(1)}px`);
+      const limit = scene.element.classList.contains('hero') ? (innerWidth <= 700 ? 12 : 32) : (innerWidth <= 700 ? 8 : 24);
+      const target = Math.max(-limit, Math.min(limit, (height / 2 - box.top - box.height / 2) * .055));
+      scene.shift += (target - scene.shift) * .12;
+      if (Math.abs(target - scene.shift) < .1) scene.shift = target;
+      else moving = true;
+      scene.element.style.setProperty('--scroll-shift', `${scene.shift.toFixed(1)}px`);
     });
     const travel = document.documentElement.scrollHeight - height;
     line.style.transform = `scaleX(${travel > 0 ? Math.max(0, Math.min(1, scrollY / travel)) : 0})`;
     scheduled = false;
+    if (moving) requestPaint();
   };
   const requestPaint = () => {
     if (!scheduled) { scheduled = true; requestAnimationFrame(paintScroll); }
