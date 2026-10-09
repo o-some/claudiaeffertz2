@@ -2,22 +2,22 @@
   <title id="title">Drei Perspektiven finden zusammen</title>
   <desc id="desc">Claudias Begleitung, Fachwissen und Umsetzung überschneiden sich im passenden Weg für ein Vorhaben.</desc>
   <defs>
-    <clipPath id="top-circle"><circle cx="310" cy="156" r="127"/></clipPath>
-    <clipPath id="left-circle"><circle cx="224" cy="274" r="127"/></clipPath>
-    <clipPath id="right-circle"><circle cx="396" cy="274" r="127"/></clipPath>
+    <clipPath id="top-circle"><circle cx="310" cy="165" r="135"/></clipPath>
+    <clipPath id="left-circle"><circle cx="245" cy="270" r="135"/></clipPath>
+    <clipPath id="right-circle"><circle cx="375" cy="270" r="135"/></clipPath>
   </defs>
-  <circle cx="310" cy="156" r="127" fill="#672332" fill-opacity=".88" stroke="#48151f" stroke-width="1.25"/>
-  <circle cx="224" cy="274" r="127" fill="#e9d5c8" fill-opacity=".84" stroke="#8c726b" stroke-width="1.25"/>
-  <circle cx="396" cy="274" r="127" fill="#959394" fill-opacity=".72" stroke="#51494a" stroke-width="1.25"/>
-  <g clip-path="url(#top-circle)"><g clip-path="url(#left-circle)"><circle cx="396" cy="274" r="127" fill="#48151f"/></g></g>
-  <g font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="700" letter-spacing="2.3" text-anchor="middle">
-    <text x="310" y="91" fill="#fffdf9">CLAUDIA</text>
-    <text x="170" y="305" fill="#261c1b">FACHWISSEN</text>
-    <text x="450" y="305" fill="#261c1b">UMSETZUNG</text>
+  <circle cx="310" cy="165" r="135" fill="#672332" fill-opacity=".88" stroke="#48151f" stroke-width="1.25"/>
+  <circle cx="245" cy="270" r="135" fill="#e9d5c8" fill-opacity=".84" stroke="#8c726b" stroke-width="1.25"/>
+  <circle cx="375" cy="270" r="135" fill="#959394" fill-opacity=".72" stroke="#51494a" stroke-width="1.25"/>
+  <g clip-path="url(#top-circle)"><g clip-path="url(#left-circle)"><circle cx="375" cy="270" r="135" fill="#48151f"/></g></g>
+  <g font-family="Arial,Helvetica,sans-serif" font-size="17" font-weight="700" letter-spacing="1.5" text-anchor="middle">
+    <text x="310" y="90" fill="#fffdf9">CLAUDIA</text>
+    <text x="200" y="355" fill="#261c1b" font-size="16" letter-spacing="1">FACHWISSEN</text>
+    <text x="420" y="355" fill="#261c1b" font-size="16" letter-spacing="1">UMSETZUNG</text>
   </g>
-  <g fill="#fffdf9" font-family="Arial,Helvetica,sans-serif" font-size="11" font-weight="700" letter-spacing="1" text-anchor="middle">
-    <text x="310" y="238">PASSENDER</text>
-    <text x="310" y="256">WEG</text>
+  <g fill="#fffdf9" font-family="Arial,Helvetica,sans-serif" font-size="18" font-weight="700" letter-spacing="1" text-anchor="middle">
+    <text x="310" y="239">PASSENDER</text>
+    <text x="310" y="263">WEG</text>
   </g>
   <path d="M310 19v-15M17 275H2M603 275h15" stroke="#6d5f5b" stroke-width="1"/>
 </svg>
