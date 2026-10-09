@@ -17,6 +17,8 @@ Danach `http://localhost:8766/` öffnen. Die Seiten arbeiten mit relativen Pfade
 - Die bisherige Referenzadresse `/leistungen/referenzen-praxisbeispiele` bleibt als eigene Seite erhalten. Neue Fallbeschreibungen werden erst nach Freigabe von Kunde, Inhalt und Ergebnis veröffentlicht.
 - Designinspiration: Dropbox `[Chelonaki - The Quiet Author]/[Buchdesign]/[077] [Business & Ratgeber] – Burgundy Code.png`. Übernommen wurden Farbspannung, feine Linien, Serifentypografie und ruhiger editorialer Aufbau; keine Buchseite wurde kopiert.
 - 20 neue redaktionelle Bildmotive liegen in `assets/`. Sie zeigen anonyme Szenen und sind keine Porträts von Claudia Effertz, Marcus Süßenbach oder den Partnern. Die Quelldateien wurden mit dem Bildgenerator erstellt und für Webauslieferung als JPEG komprimiert.
+- Das echte Porträt `assets/claudia-effertz-portrait.webp` stammt aus dem Kundenprojekt `[Claudia Effertz]/[Website]/Claudia-Effertz-Theme/assets/ce-portrait-hero.webp`. Es wurde unverändert kopiert; die warme Burgunder- und Goldwirkung entsteht durch CSS-Rahmen und eine milde Farbkorrektur im Browser. Es erscheint auf Startseite, Leistungsseite, Über-uns-Seite und Claudias Partnerprofil.
+- Scrollbewegung: einmaliges Aufdecken von Inhaltsgruppen, zurücklaufende Tiefenbewegung ausgewählter Großbilder und ein schmaler Lesefortschritt. `prefers-reduced-motion` schaltet diese Effekte ab; Inhalte bleiben ohne JavaScript sichtbar.
 - Bestehende Impressumsdaten wurden von `https://www.gesundeunternehmen.com/service/impressum` übernommen. Die Datenschutzseite wurde für eine statische Website ohne Formular, Tracking und externe Schrift- oder Skripteinbindung neu gefasst.
 
 ## Vor endgültiger Freischaltung prüfen

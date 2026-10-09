@@ -5,3 +5,21 @@
 @media(max-width:420px){h1{font-size:3.15rem}.brand-text{font-size:.95rem}.brand-mark{width:26px;height:33px}.header-inner{gap:.5rem}.people{grid-template-columns:1fr}.hero-actions .button{width:100%}.footer-grid{grid-template-columns:1fr}}
 .hero .container{min-width:0;flex:0 1 auto}.hero-content{max-width:min(800px,100%)}.split>*,.feature-grid>*,.contact-grid>*{min-width:0}h1,h2,h3{overflow-wrap:break-word}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important}.reveal{opacity:1;transform:none}}
+
+/* The original portrait stays recognizable; warmth and burgundy live in the frame. */
+.claudia-media{isolation:isolate;background:var(--wine)}
+.claudia-media img{object-position:43% 30%;filter:sepia(.13) saturate(.82) contrast(1.04) brightness(.96)}
+.claudia-media::before,.claudia-media::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:1}
+.claudia-media::before{inset:14px;border:1px solid rgba(235,199,151,.75)}
+.claudia-media::after{background:linear-gradient(135deg,rgba(72,21,31,.15),transparent 47%,rgba(72,21,31,.3))}
+
+/* A small number of large scenes move with the reader in either direction. */
+.scroll-media>img{transform:translate3d(0,var(--scroll-shift,0px),0) scale(1.1);transition:none;will-change:transform}
+.media.scroll-media:hover img{transform:translate3d(0,var(--scroll-shift,0px),0) scale(1.1)}
+.reading-line{position:absolute;inset:auto 0 0;height:2px;background:var(--gold);transform:scaleX(0);transform-origin:left;pointer-events:none}
+.reveal{opacity:1;transform:none;transition:none}
+.motion-ready .reveal{opacity:0;transform:translateY(30px);transition:opacity .85s cubic-bezier(.2,.7,.1,1),transform .85s cubic-bezier(.2,.7,.1,1);transition-delay:var(--reveal-delay,0ms)}
+.motion-ready .reveal.visible{opacity:1;transform:none}
+.button:active{transform:translateY(0) scale(.98)}
+@media(max-width:700px){.claudia-media::before{inset:9px}.scroll-media>img{transform:translate3d(0,var(--scroll-shift,0px),0) scale(1.06)}.media.scroll-media:hover img{transform:translate3d(0,var(--scroll-shift,0px),0) scale(1.06)}}
+@media(prefers-reduced-motion:reduce){.scroll-media>img,.media.scroll-media:hover img{transform:none!important;will-change:auto}.motion-ready .reveal{opacity:1;transform:none;transition:none}.reading-line{display:none}}
