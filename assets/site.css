@@ -14,8 +14,10 @@
 .claudia-media::after{background:linear-gradient(135deg,rgba(72,21,31,.15),transparent 47%,rgba(72,21,31,.3))}
 
 /* A small number of large scenes move with the reader in either direction. */
-.scroll-media>img{transform:translate3d(0,var(--scroll-shift,0px),0) scale(1.1);transition:none;will-change:transform}
-.media.scroll-media:hover img{transform:translate3d(0,var(--scroll-shift,0px),0) scale(1.1)}
+.scroll-media{--parallax-scale:1.22}
+.media.scroll-media{--parallax-scale:1.3}
+.scroll-media>img{transform:translate3d(0,var(--scroll-shift,0px),0) scale(var(--parallax-scale));transition:none;will-change:transform}
+.media.scroll-media:hover img{transform:translate3d(0,var(--scroll-shift,0px),0) scale(var(--parallax-scale))}
 .face-safe img{object-position:center top}
 .keynote-frame img{object-position:18% 12%}
 .reading-line{position:absolute;inset:auto 0 0;height:2px;background:var(--gold);transform:scaleX(0);transform-origin:left;pointer-events:none}
@@ -23,7 +25,7 @@
 .motion-ready .reveal{opacity:0;transform:translateY(18px);transition:opacity 1.25s cubic-bezier(.22,1,.36,1),transform 1.25s cubic-bezier(.22,1,.36,1);transition-delay:var(--reveal-delay,0ms)}
 .motion-ready .reveal.visible{opacity:1;transform:none}
 .button:active{transform:translateY(0) scale(.98)}
-@media(max-width:700px){.claudia-media::before{inset:9px}.scroll-media>img{transform:translate3d(0,var(--scroll-shift,0px),0) scale(1.06)}.media.scroll-media:hover img{transform:translate3d(0,var(--scroll-shift,0px),0) scale(1.06)}}
+@media(max-width:700px){.claudia-media::before{inset:9px}.scroll-media{--parallax-scale:1.22}.hero.scroll-media{--parallax-scale:1.18}.media.scroll-media{--parallax-scale:1.24}}
 @media(prefers-reduced-motion:reduce){.scroll-media>img,.media.scroll-media:hover img{transform:none!important;will-change:auto}.motion-ready .reveal{opacity:1;transform:none;transition:none}.reading-line{display:none}}
 
 /* Keep German compounds readable before narrowing a column or a word. */

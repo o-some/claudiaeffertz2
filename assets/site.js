@@ -49,8 +49,11 @@ if (!reducedMotion.matches && 'IntersectionObserver' in window) {
     scenes.forEach(scene => {
       const box = scene.element.getBoundingClientRect();
       if (box.bottom < 0 || box.top > height) return;
-      const limit = scene.element.classList.contains('hero') ? (innerWidth <= 700 ? 12 : 32) : (innerWidth <= 700 ? 8 : 24);
-      const target = Math.max(-limit, Math.min(limit, (height / 2 - box.top - box.height / 2) * .055));
+      const mobile = innerWidth <= 700;
+      const range = scene.element.classList.contains('hero') ? (mobile ? 34 : 80) : scene.element.classList.contains('page-hero-image') ? (mobile ? 26 : 70) : (mobile ? 26 : 60);
+      const scale = parseFloat(getComputedStyle(scene.element).getPropertyValue('--parallax-scale'));
+      const limit = Math.min(range, Math.max(0, box.height * (scale - 1) / 2 - 3));
+      const target = Math.max(-limit, Math.min(limit, (height / 2 - box.top - box.height / 2) * .16));
       scene.shift += (target - scene.shift) * .12;
       if (Math.abs(target - scene.shift) < .1) scene.shift = target;
       else moving = true;
