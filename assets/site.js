@@ -1,15 +1,16 @@
 const base = new URL('../', document.currentScript.src);
 const link = path => new URL(path, base).pathname;
 const nav = [
-  ['leistungen/', 'Beratung & Begleitung'],
-  ['weiterbildung/', 'Keynotes & Weiterbildung'],
-  ['beraterverbund/qualitaetsgesicherte-partner/', 'Umsetzungsnetzwerk'],
+  ['leistungen/', 'Beratung'],
+  ['weiterbildung/', 'Weiterbildung'],
+  ['beraterverbund/qualitaetsgesicherte-partner/', 'Netzwerk'],
+  ['leistungen/referenzen-praxisbeispiele/', 'Projekte'],
   ['impulse/', 'Impulse & Buch'],
   ['ueber-uns/', 'Über uns']
 ];
 const page = document.body.dataset.page || '';
 document.querySelector('#site-header').innerHTML = `<div class="header-inner"><a class="brand" href="${link('')}" aria-label="GesundeUnternehmen Startseite"><span class="brand-mark">G</span><span class="brand-text">GesundeUnternehmen<span>Beratung · Netzwerk · Umsetzung</span></span></a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav">Menü</button><nav class="nav" id="main-nav" aria-label="Hauptnavigation">${nav.map(([href,label]) => `<a href="${link(href)}" ${page === href ? 'aria-current="page"' : ''}>${label}</a>`).join('')}<a class="nav-cta" href="${link('kontakt/')}">Projekt besprechen ↗</a></nav></div>`;
-document.querySelector('#site-footer').innerHTML = `<div class="container"><div class="footer-grid"><div><a class="brand" href="${link('')}" style="color:#fff"><span class="brand-mark">G</span><span class="brand-text">GesundeUnternehmen<span>Beratung · Netzwerk · Umsetzung</span></span></a><p>Veränderung gesund gestalten.<br>Gemeinsam ins Handeln kommen.</p></div><div><span class="eyebrow">Entdecken</span><a href="${link('leistungen/')}">Leistungen</a><a href="${link('beraterverbund/qualitaetsgesicherte-partner/')}">Partnernetzwerk</a><a href="${link('weiterbildung/')}">Weiterbildung</a><a href="${link('impulse/')}">Buch & Impulse</a></div><div><span class="eyebrow">Kontakt</span><a href="${link('kontakt/')}">Projektanfrage</a><a href="mailto:office@gesundeunternehmen.com">office@gesundeunternehmen.com</a><a href="tel:+4962518691179">+49 6251 8691179</a><a href="${link('impressum/')}">Impressum</a><a href="${link('datenschutz/')}">Datenschutz</a></div></div><div class="footer-bottom"><span>© ${new Date().getFullYear()} GesundeUnternehmen · Claudia Effertz</span><span>Beratung mit Klarheit. Umsetzung mit Menschen.</span></div></div>`;
+document.querySelector('#site-footer').innerHTML = `<div class="container"><div class="footer-grid"><div><a class="brand" href="${link('')}" style="color:#fff"><span class="brand-mark">G</span><span class="brand-text">GesundeUnternehmen<span>Beratung · Netzwerk · Umsetzung</span></span></a><p>Veränderung gesund gestalten.<br>Gemeinsam ins Handeln kommen.</p></div><div><span class="eyebrow">Entdecken</span><a href="${link('leistungen/')}">Leistungen</a><a href="${link('beraterverbund/qualitaetsgesicherte-partner/')}">Partnernetzwerk</a><a href="${link('leistungen/referenzen-praxisbeispiele/')}">Projekte & Referenzen</a><a href="${link('weiterbildung/')}">Weiterbildung</a><a href="${link('impulse/')}">Buch & Impulse</a></div><div><span class="eyebrow">Kontakt</span><a href="${link('kontakt/')}">Projektanfrage</a><a href="mailto:office@gesundeunternehmen.com">office@gesundeunternehmen.com</a><a href="tel:+4962518691179">+49 6251 8691179</a><a href="${link('impressum/')}">Impressum</a><a href="${link('datenschutz/')}">Datenschutz</a></div></div><div class="footer-bottom"><span>© ${new Date().getFullYear()} GesundeUnternehmen · Claudia Effertz</span><span>Beratung mit Klarheit. Umsetzung mit Menschen.</span></div></div>`;
 const menuButton = document.querySelector('.menu-toggle');
 menuButton.addEventListener('click', () => {
   const open = menuButton.getAttribute('aria-expanded') !== 'true';

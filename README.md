@@ -14,6 +14,7 @@ Danach `http://localhost:8766/` öffnen. Die Seiten arbeiten mit relativen Pfade
 
 - Redaktionelles Konzept: `../20261007GesundeUnternehmen_Website-Konzept_2026-10-06-2.docx` (Arbeitsstand 6. Oktober 2026).
 - Bestandswebsite: `https://www.gesundeunternehmen.com/`, besonders `/beraterverbund/qualitaetsgesicherte-partner` und die dort verlinkten 20 Partnerprofile, am 9. Oktober 2026 geprüft.
+- Die bisherige Referenzadresse `/leistungen/referenzen-praxisbeispiele` bleibt als eigene Seite erhalten. Neue Fallbeschreibungen werden erst nach Freigabe von Kunde, Inhalt und Ergebnis veröffentlicht.
 - Designinspiration: Dropbox `[Chelonaki - The Quiet Author]/[Buchdesign]/[077] [Business & Ratgeber] – Burgundy Code.png`. Übernommen wurden Farbspannung, feine Linien, Serifentypografie und ruhiger editorialer Aufbau; keine Buchseite wurde kopiert.
 - 20 neue redaktionelle Bildmotive liegen in `assets/`. Sie zeigen anonyme Szenen und sind keine Porträts von Claudia Effertz, Marcus Süßenbach oder den Partnern. Die Quelldateien wurden mit dem Bildgenerator erstellt und für Webauslieferung als JPEG komprimiert.
 - Bestehende Impressumsdaten wurden von `https://www.gesundeunternehmen.com/service/impressum` übernommen. Die Datenschutzseite wurde für eine statische Website ohne Formular, Tracking und externe Schrift- oder Skripteinbindung neu gefasst.
