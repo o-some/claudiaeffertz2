@@ -68,9 +68,8 @@ body{background-image:url('grain.png')}
 @media(max-width:700px){.section--ornate--frame::after{inset:9px}}
 
 /* A drawn mark keeps action arrows consistent on iOS and every other platform. */
-.arrow{display:inline-block;position:relative;width:1.1em;height:1.1em;flex:none;vertical-align:-.16em}
-.arrow::before{content:"";position:absolute;left:.05em;top:.5em;width:1.22em;height:1.5px;background:currentColor;transform:rotate(-45deg)}
-.arrow::after{content:"";position:absolute;right:.04em;top:.04em;width:.57em;height:.57em;border-top:1.5px solid currentColor;border-right:1.5px solid currentColor}
+.arrow{display:inline-block;width:1.15rem;height:1.15rem;flex:none;vertical-align:-.2em;background:currentColor;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M3 17 17 3M7 3h10v10' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='square' stroke-linejoin='miter'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M3 17 17 3M7 3h10v10' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='square' stroke-linejoin='miter'/%3E%3C/svg%3E") center/contain no-repeat}
+.text-link .arrow,.person a .arrow,.nav-cta .arrow{width:.95rem;height:.95rem}
 .text-link .arrow,.person a .arrow{margin-left:.35em}
 .nav-cta .arrow{margin-left:.35em}
 
