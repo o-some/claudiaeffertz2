@@ -9,7 +9,7 @@ const nav = [
   ['ueber-uns/', 'Über uns']
 ];
 const page = document.body.dataset.page || '';
-document.querySelector('#site-header').innerHTML = `<div class="header-inner"><a class="brand" href="${link('')}" aria-label="GesundeUnternehmen Startseite"><span class="brand-mark">G</span><span class="brand-text">GesundeUnternehmen<span>Beratung · Netzwerk · Umsetzung</span></span></a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav">Menü</button><nav class="nav" id="main-nav" aria-label="Hauptnavigation">${nav.map(([href,label]) => `<a href="${link(href)}" ${page === href ? 'aria-current="page"' : ''}>${label}</a>`).join('')}<a class="nav-cta" href="${link('kontakt/')}">Projekt besprechen ↗</a></nav></div>`;
+document.querySelector('#site-header').innerHTML = `<div class="header-inner"><a class="brand" href="${link('')}" aria-label="GesundeUnternehmen Startseite"><span class="brand-mark">G</span><span class="brand-text">GesundeUnternehmen<span>Beratung · Netzwerk · Umsetzung</span></span></a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav">Menü</button><nav class="nav" id="main-nav" aria-label="Hauptnavigation">${nav.map(([href,label]) => `<a href="${link(href)}" ${page === href ? 'aria-current="page"' : ''}>${label}</a>`).join('')}<a class="nav-cta" href="${link('kontakt/')}">Projekt besprechen <span class="arrow" aria-hidden="true"></span></a></nav></div>`;
 document.querySelector('#site-footer').innerHTML = `<div class="container"><div class="footer-grid"><div><a class="brand" href="${link('')}" style="color:#fff"><span class="brand-mark">G</span><span class="brand-text">GesundeUnternehmen<span>Beratung · Netzwerk · Umsetzung</span></span></a><p>Veränderung gesund gestalten.<br>Gemeinsam ins Handeln kommen.</p></div><div><span class="eyebrow">Entdecken</span><a href="${link('leistungen/')}">Leistungen</a><a href="${link('beraterverbund/qualitaetsgesicherte-partner/')}">Partnernetzwerk</a><a href="${link('leistungen/referenzen-praxisbeispiele/')}">Projekte & Referenzen</a><a href="${link('weiterbildung/')}">Weiterbildung</a><a href="${link('impulse/')}">Buch & Impulse</a></div><div><span class="eyebrow">Kontakt</span><a href="${link('kontakt/')}">Projektanfrage</a><a href="mailto:office@gesundeunternehmen.com">office@gesundeunternehmen.com</a><a href="tel:+4962518691179">+49 6251 8691179</a><a href="${link('impressum/')}">Impressum</a><a href="${link('datenschutz/')}">Datenschutz</a></div></div><div class="footer-bottom"><span>© ${new Date().getFullYear()} GesundeUnternehmen · Claudia Effertz</span><span>Beratung mit Klarheit. Umsetzung mit Menschen.</span></div></div>`;
 const menuButton = document.querySelector('.menu-toggle');
 menuButton.addEventListener('click', () => {
@@ -32,12 +32,12 @@ if (!reducedMotion.matches && 'IntersectionObserver' in window) {
   });
   document.documentElement.classList.add('motion-ready');
   const observer = new IntersectionObserver(entries => entries.forEach(entry => {
-    if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
+    if (entry.isIntersecting) { entry.target.classList.add(entry.target.classList.contains('section--ornate') ? 'ornament-visible' : 'visible'); observer.unobserve(entry.target); }
   }), {threshold: .08, rootMargin: '0px 0px -5% 0px'});
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  document.querySelectorAll('main .section--ornate').forEach(el => observer.observe(el));
 
-  const scenes = [...document.querySelectorAll('.hero > img, .page-hero-image[data-parallax] > img')].map(img => ({element: img.parentElement, shift: 0}));
-  scenes.forEach(({element}) => element.classList.add('scroll-media'));
+  const scenes = [...document.querySelectorAll('.hero > img, .page-hero-image[data-parallax] > img, .feature-grid > .media:not(.claudia-media):not(.keynote-frame):not(.face-safe) > img, .split > .media > img')].map(img => ({element: img.parentElement, shift: 0}));
   const line = document.createElement('span');
   line.className = 'reading-line';
   line.setAttribute('aria-hidden', 'true');
@@ -47,10 +47,13 @@ if (!reducedMotion.matches && 'IntersectionObserver' in window) {
     const height = innerHeight;
     let moving = false;
     scenes.forEach(scene => {
+      const mobile = innerWidth <= 700;
+      const eligible = mobile || !scene.element.classList.contains('media');
+      scene.element.classList.toggle('scroll-media', eligible);
+      if (!eligible) return;
       const box = scene.element.getBoundingClientRect();
       if (box.bottom < 0 || box.top > height) return;
-      const mobile = innerWidth <= 700;
-      const range = scene.element.classList.contains('hero') ? (mobile ? 34 : 80) : scene.element.classList.contains('page-hero-image') ? (mobile ? 26 : 70) : (mobile ? 26 : 60);
+      const range = scene.element.classList.contains('hero') ? (mobile ? 56 : 80) : scene.element.classList.contains('page-hero-image') ? (mobile ? 42 : 70) : (mobile ? 40 : 60);
       const scale = parseFloat(getComputedStyle(scene.element).getPropertyValue('--parallax-scale'));
       const limit = Math.min(range, Math.max(0, box.height * (scale - 1) / 2 - 3));
       const target = Math.max(-limit, Math.min(limit, (height / 2 - box.top - box.height / 2) * .16));
